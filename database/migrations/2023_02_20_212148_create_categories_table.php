@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
@@ -19,7 +17,7 @@ return new class extends Migration
             $table->string('image')->nullable();
 
             $table->string('meta_title');
-            $table->string('meta_keyboard');
+            $table->string('meta_keyword');
             $table->mediumText('meta_description');
 
             $table->tinyInteger('status')->default('0')->comment('0=visible, 1=hidden');
@@ -28,9 +26,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('categories');
