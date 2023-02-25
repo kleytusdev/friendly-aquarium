@@ -15,49 +15,52 @@
                         <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="name" wire:model="name">
+                            id="name" wire:model="name" name="name">
                     </div>
                     <div class="mb-4">
                         <label for="slug" class="block text-gray-700 text-sm font-bold mb-2">Slug:</label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="slug" wire:model="slug">
+                            id="slug" wire:model="slug" name="slug">
                     </div>
                     <div class="mb-4">
                         <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="description" wire:model="description">
+                            id="description" wire:model="description" name="description">
                     </div>
+
                     <div class="mb-4">
                         <label for="image" class="block text-gray-700 text-sm font-bold mb-2">Imagen:</label>
-                        <input type="text"
+                        <input type="file"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="image" wire:model="image">
+                            id="image" wire:model="image" name="image" enctype="multipart/form-data">
+                            <img src="{{ asset('uploads/category/'.$category->image) }}" width="60px" height="60px">
                     </div>
+
                     <div class="mb-4">
                         <label for="meta_title" class="block text-gray-700 text-sm font-bold mb-2">Meta titulo:</label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="meta_title" wire:model="meta_title">
+                            id="meta_title" wire:model="meta_title" name="meta_title">
                     </div>
                     <div class="mb-4">
                         <label for="meta_keyword" class="block text-gray-700 text-sm font-bold mb-2">Meta keyword:</label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="meta_keyword" wire:model="meta_keyword">
+                            id="meta_keyword" wire:model="meta_keyword" name="meta_keyword">
                     </div>
                     <div class="mb-4">
                         <label for="meta_description" class="block text-gray-700 text-sm font-bold mb-2">Meta description:</label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="meta_description" wire:model="meta_description">
+                            id="meta_description" wire:model="meta_description" name="meta_description">
                     </div>
                     <div class="mb-4">
                         <label for="status" class="block text-gray-700 text-sm font-bold mb-2">Estado:</label>
-                        <input type="text"
+                        <input type="checkbox"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="status" wire:model="status">
+                            id="status" wire:model="status" name="status">
                     </div>
 
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">

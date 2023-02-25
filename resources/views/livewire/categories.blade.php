@@ -44,7 +44,10 @@
                             <td class="border px-4 py-2">{{ $category->name }}</td>
                             <td class="border px-4 py-2">{{ $category->slug }}</td>
                             <td class="border px-4 py-2">{{ $category->description }}</td>
-                            <td class="border px-4 py-2">{{ $category->image }}</td>
+                            {{-- <td class="border px-4 py-2">{{ $category->image }}</td> --}}
+                            <td class="border px-4 py-2">
+                              <img src="{{ asset('uploads/category/'.$category->image) }}" width="60px" height="60px">
+                            </td>
                             <td class="border px-4 py-2">{{ $category->meta_title }}</td>
                             <td class="border px-4 py-2">{{ $category->meta_keyword }}</td>
                             <td class="border px-4 py-2">{{ $category->meta_description }}</td>
