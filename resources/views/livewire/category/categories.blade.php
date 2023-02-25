@@ -20,7 +20,7 @@
             <button wire:click="create()"
                 class="bg-green-100 hover:bg-green-200 text-black font-bold py-2 px-4 my-3 rounded-md">Nuevo</button>
             @if ($modal)
-                @include('livewire.create')
+                @include('livewire.category.create')
             @endif
 
             <table class="table-fixed w-full">
@@ -48,7 +48,7 @@
                             <td class="border px-4 py-2">{{ $category->meta_title }}</td>
                             <td class="border px-4 py-2">{{ $category->meta_keyword }}</td>
                             <td class="border px-4 py-2">{{ $category->meta_description }}</td>
-                            <td class="border px-4 py-2">{{ $category->status }}</td>
+                            <td class="border px-4 py-2">{{ $category->status == 1 ? 'hidden' : 'visible' }}</td>
                             <td class="border px-4 py-2 text-center">
                                 <button wire:click="edit({{ $category->id }})"
                                   class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4">Editar

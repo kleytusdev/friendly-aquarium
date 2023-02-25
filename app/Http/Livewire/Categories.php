@@ -17,7 +17,7 @@ class Categories extends Component
   public function render()
   {
     $this->categories = Category::all();
-    return view('livewire.categories');
+    return view('livewire.category.categories');
   }
 
   public function create()
@@ -52,9 +52,8 @@ class Categories extends Component
     $this->meta_title = $category->meta_title;
     $this->meta_keyword = $category->meta_keyword;
     $this->meta_description = $category->meta_description;
-    $this->status = $category->status;
+    $this->status = $category->status == true ? '1' : '0';
     $this->openModal();
-
   }
 
   public function destroy()
@@ -75,7 +74,7 @@ class Categories extends Component
       'meta_title' => $this->meta_title,
       'meta_keyword' => $this->meta_keyword,
       'meta_description' => $this->meta_description,
-      'status' => $this->status
+      'status' => $this->status == true ? '1' : '0',
     ]);
 
     session()->flash('message',
