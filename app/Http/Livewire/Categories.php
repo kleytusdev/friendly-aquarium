@@ -63,7 +63,7 @@ class Categories extends Component
     $this->meta_title = $category->meta_title;
     $this->meta_keyword = $category->meta_keyword;
     $this->meta_description = $category->meta_description;
-    $this->status = $category->status == true ? '1' : '0';
+    $this->status = $category->status;
     $this->openModal();
   }
 
