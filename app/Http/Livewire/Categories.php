@@ -4,11 +4,19 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
+use Livewire\WithFileUploads;
+
 
 class Categories extends Component
 {
   // Definimos una variable
+  use WithFileUploads;
+  //use Exception;
+
   public $categories, $id_category, $name, $slug, $description, $image, $meta_title, $meta_keyword, $meta_description, $status;
+  public $imageUrl;
   public $modal = false;
   public $delete_id;
 
@@ -16,6 +24,8 @@ class Categories extends Component
 
   public function render()
   {
+    abort_if(auth()->user()->role_as != 1, 403);
+
     $this->categories = Category::all();
     return view('livewire.category.categories');
   }
@@ -28,6 +38,7 @@ class Categories extends Component
 
   public function openModal()
   {
+    $this->resetValidation();
     $this->modal = true;
   }
 
@@ -63,26 +74,48 @@ class Categories extends Component
   }
 
 
+  public function store()
+  {
 
-  public function store(){
-    Category::updateOrCreate(['id'=>$this->id_category],
-    [
+    $validatedData = $this->validate([
+      'name' => 'required|regex:/^[a-zA-Z]+$/',
+      'slug' => 'required',
+      'description' => 'required',
+      'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:5120',
+      'meta_title' => 'required',
+      'meta_keyword' => 'required',
+      'meta_description' => 'required',
+      'status' => ''
+    ]);
+
+    $categoryData = [
       'name' => $this->name,
       'slug' => $this->slug,
       'description' => $this->description,
-      'image' => $this->image,
       'meta_title' => $this->meta_title,
       'meta_keyword' => $this->meta_keyword,
       'meta_description' => $this->meta_description,
       'status' => $this->status == true ? '1' : '0',
-    ]);
+    ];
 
-    session()->flash('message',
-    $this->id_category ? '¡Actualización exitosa!' : '¡Registro exitoso!');
+      if ($this->image) {
+        $extension = $this->image->extension();
+        $imageName = time().'.'.$extension;
+        $this->image->storeAs('public', $imageName);
+        $categoryData['image'] = $imageName;
+        $this->imageUrl = $this->image->temporaryUrl();
 
-    $this->closeModal();
-    $this->cleanData();
+      }
+
+      Category::updateOrCreate(['id' => $this->id_category], $categoryData);
+
+      session()->flash('message',
+      $this->id_category ? '¡Actualización exitosa!' : '¡Registro exitoso!');
+
+      $this->closeModal();
+      $this->cleanData();
   }
+
 
   public function deletedConfirmation($id)
   {
