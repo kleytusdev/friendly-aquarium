@@ -29,13 +29,3 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('brands', Brands::class);
     Route::get('products', Products::class);
 });
-
-Route::controller(CategoryController::class)->group(function(){
-    Route::get('/category', 'index');
-    Route::get('/category/create', 'create');
-    Route::post('/category', 'store');
-    Route::get('/category/{category}/edit', 'edit');
-    Route::put('/category/{category}', 'update');
-});
-
-
