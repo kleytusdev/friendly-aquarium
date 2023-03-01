@@ -38,7 +38,7 @@
                           <td class="border px-4 py-2">{{ $brand->id }}</td>
                           <td class="border px-4 py-2">{{ $brand->name }}</td>
                           <td class="border px-4 py-2">{{ $brand->slug }}</td>
-                          <td class="border px-4 py-2">{{ $brand->status == 1 ? 'hidden' : 'visible'}}</td>
+                          <td class="border px-4 py-2">{{ $brand->status == 1 ? 'Oculto' : 'Visible'}}</td>
                           <td class="border px-4 py-2 text-center">
                               <button wire:click="edit({{ $brand->id }})"
                                 class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4">Editar

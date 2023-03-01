@@ -16,6 +16,8 @@ class Brands extends Component
 
   public function render()
   {
+    abort_if(auth()->user()->role_as != 1, 403);
+
     $this->brands = Brand::all();
     return view('livewire.brand.brands');
   }
@@ -28,6 +30,7 @@ class Brands extends Component
 
   public function openModal()
   {
+    $this->resetValidation();
     $this->modal = true;
   }
 
@@ -47,17 +50,10 @@ class Brands extends Component
     $this->id_brand = $id;
     $this->name = $brand->name;
     $this->slug = $brand->slug;
-    $this->status = $brand->status == true ? '1' : '0';
+    $this->status = $brand->status;
     $this->openModal();
 
   }
-
-  public function destroy()
-  {
-    $brand = Brand::where('id', $this->delete_id)->first();
-    $brand->delete();
-  }
-
 
 
   public function store(){
@@ -73,6 +69,12 @@ class Brands extends Component
 
     $this->closeModal();
     $this->cleanData();
+  }
+
+  public function destroy()
+  {
+    $brand = Brand::where('id', $this->delete_id)->first();
+    $brand->delete();
   }
 
   public function deletedConfirmation($id)

@@ -25,11 +25,12 @@
                           id="slug" wire:model="slug">
                   </div>
                   <div class="mb-4">
-                      <label for="status" class="block text-gray-700 text-sm font-bold mb-2">Estado:</label>
-                      <input type="checkbox"
-                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                          id="status" wire:model="status">
-                  </div>
+                    <label for="status" class="block text-gray-700 text-sm font-bold mb-2">Estado:</label>
+                    <input type="checkbox"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="status" wire:model="status" name="status">
+                        @error('status') <small class="text-red-500">{{$message}}</small>@enderror
+                </div>
 
                   <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                       <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
