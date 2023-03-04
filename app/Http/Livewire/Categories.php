@@ -6,19 +6,20 @@ use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
-
+use Livewire\WithPagination;
 
 class Categories extends Component
 {
-  // Definimos una variable
   use WithFileUploads;
-  //use Exception;
+  use WithPagination;
 
-  public $categories, $id_category, $name, $slug, $description, $image, $meta_title, $meta_keyword, $meta_description, $status;
+  public $id_category, $name, $slug, $description, $image, $meta_title, $meta_keyword, $meta_description, $status;
   public $imageUrl;
   public $modal = false;
   public $delete_id;
+  protected $categories = [];
 
   protected $listeners = ['destroy'];
 
@@ -26,9 +27,23 @@ class Categories extends Component
   {
     abort_if(auth()->user()->role_as != 1, 403);
 
-    $this->categories = Category::all();
-    return view('livewire.category.categories');
+    $categories = DB::table('categories')->paginate(5);
+
+    return view('livewire.category.categories', [
+      'categories' => $categories
+    ]);
   }
+
+  // public function render()
+  // {
+  //
+
+  //   $this->categories = Category::paginate(5);
+
+  //   return view('livewire.category.categories', [
+  //       'categories' => $this->categories,
+  //   ]);
+  // }
 
   public function create()
   {
@@ -98,22 +113,18 @@ class Categories extends Component
       'status' => $this->status == true ? '1' : '0',
     ];
 
-      if ($this->image) {
-        $extension = $this->image->extension();
-        $imageName = time().'.'.$extension;
-        $this->image->storeAs('public', $imageName);
-        $categoryData['image'] = $imageName;
-        $this->imageUrl = $this->image->temporaryUrl();
+    if ($this->image) {
+      $extension = $this->image->extension();
+      $imageName = time() . '.' . $extension;
+      $this->image->storeAs('public', $imageName);
+      $categoryData['image'] = $imageName;
+      $this->imageUrl = $this->image->temporaryUrl();
+    }
 
-      }
+    Category::updateOrCreate(['id' => $this->id_category], $categoryData);
 
-      Category::updateOrCreate(['id' => $this->id_category], $categoryData);
-
-      session()->flash('message',
-      $this->id_category ? '¡Actualización exitosa!' : '¡Registro exitoso!');
-
-      $this->closeModal();
-      $this->cleanData();
+    $this->closeModal();
+    $this->cleanData();
   }
 
 
@@ -122,5 +133,4 @@ class Categories extends Component
     $this->delete_id = $id;
     $this->dispatchBrowserEvent('eventDeleteConfirmation');
   }
-
 }

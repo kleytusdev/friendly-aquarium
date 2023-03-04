@@ -48,10 +48,6 @@
                     @endif
                 </div>
 
-                  <div class="image-container">
-                    <!-- Aquí se mostrará la imagen seleccionada por el usuario -->
-                  </div>
-
                     <div class="mb-4">
                         <label for="meta_title" class="block text-gray-700 text-sm font-bold mb-2">Meta titulo:</label>
                         <input type="text"

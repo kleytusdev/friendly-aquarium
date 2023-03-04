@@ -17,14 +17,30 @@
 
     <!-- Styles -->
     @livewireStyles
+
+    <script>
+      function setTheme(theme) {
+        document.documentElement.className = theme;
+        localStorage.setItem('theme', theme);
+      }
+
+      // Obtiene el tema actual del almacenamiento local
+      var theme = localStorage.getItem('theme');
+
+      // Si no hay un tema en el almacenamiento local, usa el tema predeterminado
+      if (!theme) {
+        theme = 'theme-light';
+      }
+
+      // Establece el tema actual
+      setTheme(theme);
+    </script>
 </head>
 
 <body class="font-sans antialiased">
     <x-banner />
 
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        @livewire('navigation-menu')
-
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-white dark:bg-gray-800 shadow">
@@ -40,6 +56,7 @@
         </main>
     </div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- Sweet Alert Delete Script --}}
     <script>
@@ -52,19 +69,19 @@
               buttonsStyling: false,
           })
           swalWithTailwindButtons.fire({
-              title: 'Are you sure?',
-              text: "You won't be able to revert this!",
+              title: '¿Realmente quieres eliminar este producto?',
+              text: "¡No podrás revertir esto!",
               icon: 'warning',
               showCancelButton: true,
-              confirmButtonText: 'Yes, delete it!',
-              cancelButtonText: 'No, cancel!',
+              confirmButtonText: 'Sí, bórralo',
+              cancelButtonText: 'No, cancelar',
               reverseButtons: true
           }).then((result) => {
               if (result.isConfirmed) {
                 Livewire.emit('destroy')
                 swalWithTailwindButtons.fire(
-                  'Deleted!',
-                  'Your file has been deleted.',
+                  '¡Eliminado!',
+                  'Su registro a sido eliminado.',
                   'success'
                   )
               } else if (
@@ -72,8 +89,8 @@
                   result.dismiss === Swal.DismissReason.cancel
               ) {
                   swalWithTailwindButtons.fire(
-                      'Cancelled',
-                      'Your imaginary file is safe :)',
+                      'Cancelado',
+                      'Tu registro está a salvo :)',
                       'error'
                   )
               }

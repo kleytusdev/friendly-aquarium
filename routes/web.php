@@ -7,6 +7,9 @@ use App\Http\Livewire\Categories;
 use App\Http\Livewire\Products;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Livewire\Admin;
+use App\Http\Livewire\CustomPagination;
+use App\Http\Livewire\Home;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,7 +20,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/home', function () {
         return view('dashboard');
     })->name('dashboard');
 });
@@ -28,4 +31,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('categories', Categories::class);
     Route::get('brands', Brands::class);
     Route::get('products', Products::class);
+    Route::get('admin', Admin::class);
 });
+
