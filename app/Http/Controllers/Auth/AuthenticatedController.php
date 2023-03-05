@@ -12,6 +12,7 @@ use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Http\Requests\LoginRequest;
 use App\Providers\RouteServiceProvider;
 
 
@@ -51,16 +52,16 @@ class AuthenticatedController extends AuthenticatedSessionController
         ]));
     }
 
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
       return $this->loginPipeline($request)->then(function ($request) {
         // Si el usuario tiene role_as 1, redirige a categorías
-        if (Auth::user()->role_as == "1"){
-            return redirect('categories');
+        if (Auth::user()->role_as == '1'){
+          return redirect(RouteServiceProvider::DASHBOARD);
+        }else{
+          // Si el usuario no tiene role_as 1, redirige a la ruta predeterminada
+          return redirect(RouteServiceProvider::HOME);
         }
-
-        // Si el usuario no tiene role_as 1, redirige a la ruta predeterminada
-        return redirect(RouteServiceProvider::HOME);
       });
     }
 }

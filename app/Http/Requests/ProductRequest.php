@@ -21,21 +21,20 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-          'id_category' => 'required',
-          // 'name' => 'required|string|max:255',
-          // 'slug' => 'required|string|unique:productos,slug|max:255',
-          // 'brand' => 'required|string|max:255',
-          // 'small_description' => 'required|string|max:255',
-          // 'description' => 'required|string',
-          // 'original_price' => 'required|numeric|min:0',
-          // 'selling_price' => 'required|numeric|min:0',
-          // 'quantity' => 'required|integer|min:0',
-          // 'trending' => 'required|boolean',
-          // 'status' => 'required|boolean',
-          // 'meta_title' => 'nullable|string|max:255',
-          // 'meta_keyword' => 'nullable|string|max:255',
-          // 'meta_description' => 'nullable|string|max:255',
-        ];
+        return [    'category_id' => ['required', 'integer'],
+        'name' => ['required', 'string', 'max:255'],
+        'slug' => ['required', 'string', 'max:255'],
+        'brand' => ['required', 'string', 'max:255'],
+        'small_description' => ['required', 'string', 'max:255'],
+        'description' => ['required', 'string'],
+        'original_price' => ['required'],
+        'selling_price' => ['required'],
+        'quantity' => ['required'],
+        'trending' => ['required'],
+        'status' => ['required'],
+        'meta_title' => ['required', 'string', 'max:255'],
+        'meta_keyword' => ['required', 'string', 'max:255'],
+        'meta_description' => ['required', 'string', 'max:255'],
+      ];
     }
 }

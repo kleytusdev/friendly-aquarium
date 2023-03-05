@@ -34,17 +34,6 @@ class Categories extends Component
     ]);
   }
 
-  // public function render()
-  // {
-  //
-
-  //   $this->categories = Category::paginate(5);
-
-  //   return view('livewire.category.categories', [
-  //       'categories' => $this->categories,
-  //   ]);
-  // }
-
   public function create()
   {
     $this->cleanData();

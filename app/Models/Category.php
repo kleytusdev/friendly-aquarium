@@ -21,7 +21,7 @@ class Category extends Model
         'status',
     ];
 
-    public function products(){
-      return $this->hasMany(Product::class, 'category_id', 'id');
+    public function product(){
+      return $this->hasMany(Product::class);
     }
 }

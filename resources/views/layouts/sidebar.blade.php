@@ -7,7 +7,7 @@
         </div>
         <ul class="mt-6 space-y-2 tracking-wide">
           <li class="min-w-max mx-8">
-              <a href="admin" class="group flex items-center space-x-4 rounded-md px-7 h-[3.2vw] hover:bg-neutral-800 text-gray-400">
+              <a href="dashboard" class="group flex items-center space-x-4 rounded-md px-7 h-[3.2vw] hover:bg-neutral-800 text-gray-400">
                 <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                   <path d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2-V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2-v-1Z" class="fill-current text-cyan-400 dark:fill-slate-600"></path>
                   <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2-V8Z" class="fill-current text-custom-clarity"></path>
@@ -63,9 +63,12 @@
         </ul>
       </div>
       <div class="w-max -mb-3">
-        <a href="#" class="group flex items-center space-x-4 rounded-md px-12 py-4 text-gray-300">
-          <span class="group-hover:text-custom-text-clarity">Log Out</span>
-        </a>
+        <form method="POST" action="{{ route('logout') }}" x-data>
+          @csrf
+            <a href="{{ route('logout') }}" class="group flex items-center space-x-4 rounded-md px-12 py-4 text-gray-300">
+              <span class="group-hover:text-custom-text-clarity">Log Out</span>
+            </a>
+        </form>
       </div>
     </div>
   </div>
