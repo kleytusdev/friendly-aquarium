@@ -16,7 +16,7 @@
                         <label for="name" class="block text-gray-400 text-sm font-bold mb-2">Nombre:</label>
                         <input type="text"
                             class="bg-zinc-700 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
-                            id="name" wire:model="name" name="name">
+                            id="name"wire:model.lazy="name" name="name">
                         @error('name')
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror

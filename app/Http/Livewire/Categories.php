@@ -92,7 +92,7 @@ class Categories extends Component
       'status' => ''
     ]);
 
-    $categoryData = [
+    $category = [
       'name' => $this->name,
       'slug' => $this->slug,
       'description' => $this->description,
@@ -106,11 +106,11 @@ class Categories extends Component
       $extension = $this->image->extension();
       $imageName = time() . '.' . $extension;
       $this->image->storeAs('public', $imageName);
-      $categoryData['image'] = $imageName;
+      $category['image'] = $imageName;
       $this->imageUrl = $this->image->temporaryUrl();
     }
 
-    Category::updateOrCreate(['id' => $this->id_category], $categoryData);
+    Category::updateOrCreate(['id' => $this->id_category], $category);
 
     $this->closeModal();
     $this->cleanData();
