@@ -11,14 +11,20 @@ use App\Http\Livewire\Admin;
 use App\Http\Livewire\CustomPagination;
 use App\Http\Livewire\Home;
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/', function () {
-        return view('home');
-    })->name('home');
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/', function () {
+//         return view('home');
+//     })->name('home');
+// });
+
+Route::middleware([])->group(function () {
+  Route::get('/', function () {
+    return view('home');
+  })->name('home');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

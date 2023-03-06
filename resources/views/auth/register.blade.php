@@ -9,6 +9,10 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
+            <div class="flex flex-items justify-center p-3 py-[2vw] items-center">
+              <h1 class="font-black text-3xl text-[#FEAB6A]">Sign Up</h1>
+            </div>
+
             <div>
                 <x-label for="name" value="{{ __('Name') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
@@ -47,7 +51,7 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+                <a class="no-underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FEAB6A] dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
