@@ -5,10 +5,10 @@
           <div class="flex flex-grow">
               <!-- Logo -->
               <div class="shrink-2 flex items-center">
-                  <a href="{{ route('home') }}">
-                      <img class="h-8 w-8" src="https://via.placeholder.com/50" alt="Logo">
-                  </a>
-              </div>
+                <a href="{{ route('home') }}">
+                    <h1 class="text-gray-200 font-black text-3xl">FA</h1>
+                </a>
+            </div>
               <!-- Navigation Links -->
               <div class="hidden space-x-20 sm:-my-px sm:ml-[10vw] sm:flex flex-grow">
                   <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
