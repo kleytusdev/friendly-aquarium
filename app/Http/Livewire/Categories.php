@@ -82,7 +82,7 @@ class Categories extends Component
   {
 
     $validatedData = $this->validate([
-      'name' => 'required|regex:/^[a-zA-Z]+$/',
+      'name' => 'required',
       'slug' => 'required',
       'description' => 'required',
       'image' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:5120',

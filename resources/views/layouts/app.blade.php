@@ -39,21 +39,25 @@
 
 <body class="font-sans antialiased">
 
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        <!-- Page Heading -->
+  <div class="min-h-screen bg-cover bg-center" style="background-image: url('https://cdn.discordapp.com/attachments/920362745231192114/1082375810926792744/wallpaperflare.com_wallpaper_4.jpg');">
+    <!-- Page Heading -->
         @if (isset($header))
-            <header class="bg-white dark:bg-gray-800 shadow">
+            <header class="bg-gray-400 dark:bg-gray-200 shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
         @endif
 
+        <!-- Nav -->
+
+
         <!-- Page Content -->
         <main>
             {{ $slot }}
         </main>
-    </div>
+</div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

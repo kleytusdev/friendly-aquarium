@@ -11,21 +11,21 @@ use App\Http\Livewire\Admin;
 use App\Http\Livewire\CustomPagination;
 use App\Http\Livewire\Home;
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/', function () {
-//         return view('home');
-//     })->name('home');
-// });
-
-Route::middleware([])->group(function () {
-  Route::get('/', function () {
-    return view('home');
-  })->name('home');
+Route::middleware([
+    config('jetstream.auth_session'),
+    // 'verified'
+])->group(function () {
+    Route::get('/', function () {
+      return view('home');
+    })->name('home');
+    Route::get('/about', function () {
+      return view('about');
+    })->name('about');
+    Route::get('/contact', function () {
+      return view('contact');
+    })->name('contact');
 });
+
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('logout', [AuthenticatedController::class, 'logout']);
@@ -36,11 +36,3 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::post('/login', [AuthenticatedController::class, 'store']);
-
-Route::get('about', function() {
-  return 'About';
-})->name('about');
-
-Route::get('contact', function() {
-  return 'Contact';
-})->name('contact');

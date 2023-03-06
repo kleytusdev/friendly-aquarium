@@ -1,5 +1,5 @@
 <div class="min-h-screen bg-zinc-900">
-  <div class="w-[15vw] bg-neutral-900" style="float: left;"">
+  <div class="w-[15vw] bg-neutral-900" style="float: left;">
     <div class="flex h-screen flex-col justify-between pt-2 pb-6">
       <div>
         <div class="w-max px-7 pt-6 pb-4">
@@ -72,8 +72,6 @@
       </div>
     </div>
   </div>
-
-
   <div class="ml-[20vw] pt-5">
     @yield('dashboard')
   </div>
