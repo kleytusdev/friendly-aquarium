@@ -30,3 +30,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::post('/login', [AuthenticatedController::class, 'store']);
+
+Route::get('about', function() {
+  return 'About';
+})->name('about');
+
+Route::get('contact', function() {
+  return 'Contact';
+})->name('contact');

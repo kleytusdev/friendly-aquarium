@@ -4,38 +4,38 @@
     <div class="flex flex-col justify-center items-center h-[100vh]">
       <h1 class="mb-8 ml-[-4vw] font-extrabold text-white text-3xl">Your Account</h1>
       <div
-      class="relative flex flex-col items-center rounded-[20px] w-[270px] mx-auto p-4 bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none">
+      class="relative flex flex-col items-center rounded-[20px] w-[270px] mx-auto p-4 bg-gray-custom bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none">
       <div class="relative flex h-32 w-full justify-center rounded-xl bg-cover">
                     <img src='https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/banner.ef572d78f29b0fee0a09.png'
                         class="absolute flex h-32 w-full justify-center rounded-xl bg-cover">
                     <div
-                        class="absolute -bottom-12 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
+                        class="absolute -bottom-12 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-gray-200 bg-pink-400 dark:!border-navy-700">
                         <img class="h-full w-full rounded-full"
                             src='https://cdn.discordapp.com/attachments/920362745231192114/1081327830161436813/DALLE_2023-02-24_17.44.35_-_3D_render_of_a_cute_betta_fish_on_a_dark_background_digital_art.png'
                             alt="" />
                     </div>
                 </div>
                 <div class="mt-16 flex flex-col items-center">
-                    <h4 class="text-xl font-bold dark:text-gray-600">
+                    <h4 class="text-xl font-bold dark:text-gray-200">
                         Friendly Aquarium
                     </h4>
                 </div>
                 <div class="mt-6 mb-3 flex gap-14 md:!gap-10">
                     <div class="flex flex-col items-center justify-center">
-                        <p class="text-2xl font-bold text-navy-700 dark:text-gray-600">17</p>
-                        <p class="text-sm font-normal text-gray-600">Posts</p>
+                        <p class="text-2xl font-bold text-navy-700 dark:text-gray-200">17</p>
+                        <p class="text-sm font-normal text-gray-200">Posts</p>
                     </div>
                     <div class="flex flex-col items-center justify-center">
-                        <p class="text-2xl font-bold text-navy-700 dark:text-gray-600">
+                        <p class="text-2xl font-bold text-navy-700 dark:text-gray-200">
                             9.7K
                         </p>
-                        <p class="text-sm font-normal text-gray-600">Followers</p>
+                        <p class="text-sm font-normal text-gray-200">Followers</p>
                     </div>
                     <div class="flex flex-col items-center justify-center">
-                        <p class="text-2xl font-bold text-navy-700 dark:text-gray-600">
+                        <p class="text-2xl font-bold text-navy-700 dark:text-gray-200">
                             434
                         </p>
-                        <p class="text-sm font-normal text-gray-600">Following</p>
+                        <p class="text-sm font-normal text-gray-200">Following</p>
                     </div>
                 </div>
             </div>

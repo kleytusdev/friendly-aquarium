@@ -1,5 +1,5 @@
-<div class="min-h-screen dark:bg-zinc-900">
-  <div class="w-[19vw] dark:bg-neutral-900" style="float: left;"">
+<div class="min-h-screen bg-zinc-900">
+  <div class="w-[15vw] bg-neutral-900" style="float: left;"">
     <div class="flex h-screen flex-col justify-between pt-2 pb-6">
       <div>
         <div class="w-max px-7 pt-6 pb-4">
@@ -26,7 +26,7 @@
             </a>
           </li>
           <li class="min-w-max mx-8">
-            <a href="products" class="group flex items-center space-x-4 rounded-md px-7 h-[3.2vw] hover:bg-neutral-800 text-gray-400">
+            <a href="#" class="group flex items-center space-x-4 rounded-md px-7 h-[3.2vw] hover:bg-neutral-800 text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path class="fill-current text-gray-600 group-hover:text-custom" fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
                 <path class="fill-current text-custom-text-clarity group-hover:text-custom-clarity" d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
@@ -77,7 +77,7 @@
   <div class="ml-[20vw] pt-5">
     @yield('dashboard')
   </div>
-  <div class="ml-[20vw] p-16 pt-10">
+  <div class="ml-[20vw] ">
     @yield('categories')
     @yield('products')
   </div>

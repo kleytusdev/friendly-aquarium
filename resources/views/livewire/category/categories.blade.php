@@ -2,12 +2,12 @@
 
 @section('dashboard')
     @include('layouts.search')
-    <h1 class="ml-[3vw] font-extrabold text-white text-3xl">Category</h1>
+    <h1 class="my-[3vw] font-extrabold text-white text-3xl">Category</h1>
 @section('categories')
     <div class="bg-white overflow-hidden shadow-xl rounded-lg px-10 py-8 w-[60vw]">
         <div class="flex justify-between mb-7">
             <h1 class="font-extrabold text-gray-600 text-2xl">Categories List</h1>
-            <div class="bg-gray-200 flex justify-center items-center w-9 h-9 rounded-full hover:bg-gray-400">
+            <div class="bg-gray-200 flex justify-center items-center w-9 h-9 rounded-full hover:bg-gray-400 transition ease-in-out">
                 <a href="#" wire:click="create()">
                     <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35">
                         <path d="M469 830V587H226v-22h243V322h22v243h243v22H491v243h-22Z" />

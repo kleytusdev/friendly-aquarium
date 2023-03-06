@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-gradient {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #ffc0a1 0.89%,
+    #ffc082 17.23%,
+    #FECB6E 42.04%,
+    #FDD373 55.12%,
+    #FDC77A 71.54%,
+    #FC9968 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+

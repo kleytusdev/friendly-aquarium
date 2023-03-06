@@ -38,7 +38,6 @@
 </head>
 
 <body class="font-sans antialiased">
-    <x-banner />
 
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         <!-- Page Heading -->
@@ -69,7 +68,7 @@
               buttonsStyling: false,
           })
           swalWithTailwindButtons.fire({
-              title: '¿Realmente quieres eliminar este producto?',
+              title: '¿Realmente quieres eliminar este registro?',
               text: "¡No podrás revertir esto!",
               icon: 'warning',
               showCancelButton: true,
