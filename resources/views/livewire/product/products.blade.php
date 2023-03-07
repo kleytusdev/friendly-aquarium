@@ -43,12 +43,9 @@
                             <td class="border px-4 py-2">{{ $product->id }}</td>
                             <td class="border px-4 py-2">{{ $product->name }}</td>
                             <td class="border px-4 py-2">{{ $product->slug }}</td>
-                            <td class="border px-4 py-2">{{ $product->small_description }}</td>
                             <td class="border px-4 py-2">{{ $product->description }}</td>
-                            <td class="border px-4 py-2">{{ $product->original_price }}</td>
-                            <td class="border px-4 py-2">{{ $product->selling_price }}</td>
+                            <td class="border px-4 py-2">{{ $product->price }}</td>
                             <td class="border px-4 py-2">{{ $product->quantity }}</td>
-                            <td class="border px-4 py-2">{{ $product->trending }}</td>
                             <td class="border px-4 py-2">{{ $product->status }}</td>
                             <td class="border px-4 py-2">
                               @isset($product->image)
@@ -58,9 +55,6 @@
                               @endisset
                             </td>
                             <td class="border px-4 py-2">{{ $product->status == 1 ? 'Oculto' : 'Visible'}}</td>
-                            <td class="border px-4 py-2">{{ $product->meta_title }}</td>
-                            <td class="border px-4 py-2">{{ $product->meta_keyword }}</td>
-                            <td class="border px-4 py-2">{{ $product->meta_description }}</td>
                             <td class="border px-4 py-2 text-center">
                                 <button wire:click="edit({{ $product->id }})"
                                   class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4">Editar

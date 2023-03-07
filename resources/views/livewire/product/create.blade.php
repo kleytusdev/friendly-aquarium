@@ -12,32 +12,19 @@
             <form action="{{ url('products') }}" method="POST">
                 @csrf
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                  <div class="mb-4">
-                    <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Categoría:</label>
-                    <select name="category_id">
-                        @foreach ($categories as $category)
-                            <option value="{{ $this->category_id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                    <div>
-                    </div>
-                    @error('category')
-                        <small class="text-red-500">{{ $message }}</small>
-                    @enderror
-                </div>
                     <div class="mb-4">
-                        <label for="brand" class="block text-gray-700 text-sm font-bold mb-2">Marca:</label>
-                        <select name="brand">
-                            @foreach ($brands as $brand)
-                                <option value="{{ $brand->name }}">{{ $brand->name }}</option>
-                            @endforeach
+                        <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Categoría:</label>
+                        <select name="category_id" id="category_id" wire:model="category_id">
+                          <option value="">Seleccione una categoría</option>
+                          @foreach ($categories as $category)
+                              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                          @endforeach
                         </select>
-                        <div>
-                        </div>
-                        @error('brand')
+                        @error('category_id')
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
+
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
                         <input type="text"
@@ -56,15 +43,7 @@
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="mb-4">
-                        <label for="small_description" class="block text-gray-700 text-sm font-bold mb-2">Small Descripción</label>
-                        <textarea
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="small_description" wire:model="small_description" name="small_description"></textarea>
-                        @error('small_description')
-                            <small class="text-red-500">{{ $message }}</small>
-                        @enderror
-                    </div>
+
                     <div class="mb-4">
                         <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
                         <textarea
@@ -75,25 +54,16 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="original_price"
-                            class="block text-gray-700 text-sm font-bold mb-2">Precio original:</label>
+                        <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Precio
+                            original:</label>
                         <textarea
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="original_price" wire:model="original_price" name="original_price"></textarea>
-                        @error('original_price')
+                            id="price" wire:model="price" name="price"></textarea>
+                        @error('price')
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="mb-4">
-                        <label for="selling_price"
-                            class="block text-gray-700 text-sm font-bold mb-2">Precio modificado:</label>
-                        <textarea
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="selling_price" wire:model="selling_price" name="selling_price"></textarea>
-                        @error('selling_price')
-                            <small class="text-red-500">{{ $message }}</small>
-                        @enderror
-                    </div>
+
                     <div class="mb-4">
                         <label for="quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad:</label>
                         <textarea
@@ -103,15 +73,7 @@
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="mb-4">
-                        <label for="trending" class="block text-gray-700 text-sm font-bold mb-2">Tendencias:</label>
-                        <textarea
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="trending" wire:model="trending" name="trending"></textarea>
-                        @error('trending')
-                            <small class="text-red-500">{{ $message }}</small>
-                        @enderror
-                    </div>
+
                     <div class="mb-4">
                         <label for="image" class="block text-gray-700 text-sm font-bold mb-2">Imagen:</label>
                         @if ($this->image && is_object($this->image))
@@ -141,37 +103,6 @@
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="mb-4">
-                        <label for="meta_title" class="block text-gray-700 text-sm font-bold mb-2">Meta
-                            titulo:</label>
-                        <input type="text"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="meta_title" wire:model="meta_title" name="meta_title">
-                        @error('meta_title')
-                            <small class="text-red-500">{{ $message }}</small>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="meta_keyword" class="block text-gray-700 text-sm font-bold mb-2">Meta
-                            keyword:</label>
-                        <input type="text"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="meta_keyword" wire:model="meta_keyword" name="meta_keyword">
-                        @error('meta_keyword')
-                            <small class="text-red-500">{{ $message }}</small>
-                        @enderror
-                    </div>
-                    <div class="mb-4">
-                        <label for="meta_description" class="block text-gray-700 text-sm font-bold mb-2">Meta
-                            description:</label>
-                        <input type="text"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="meta_description" wire:model="meta_description" name="meta_description">
-                        @error('meta_description')
-                            <small class="text-red-500">{{ $message }}</small>
-                        @enderror
-                    </div>
-
 
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
