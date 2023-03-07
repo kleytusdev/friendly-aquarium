@@ -2,21 +2,23 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Requests\ProductRequest;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Support\Str;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class Products extends Component
 {
 
   use WithFileUploads;
+  use WithPagination;
 
-  public  $id_product ,$products, $category_id, $name, $slug,
-          $description, $price, $quantity, $image, $status;
+  public  $id_product, $category_id, $name, $slug,
+    $description, $price, $quantity, $image, $status, $productImages;
 
   public $imageUrl;
   public $modal = false;
@@ -28,18 +30,27 @@ class Products extends Component
   {
     abort_if(auth()->user()->role_as != 1, 403);
 
+    $products_pages = DB::table('categories')->paginate(5);
+
+    $products = Product::all();
     $categories = Category::all();
+    $images = ProductImage::all();
 
-    $this->products = Product::all();
 
-    return view('livewire.product.products', compact('categories'));
+    return view('livewire.product.products', compact('categories', 'images', 'products', 'products_pages'));
   }
 
   public function create()
   {
+
+
     $this->cleanData();
     $this->openModal();
+    $products = Product::all();
+    $categories = Category::all();
+    $images = ProductImage::all();
 
+    return view('livewire.product.create', compact('categories', 'images', 'products'));
   }
 
   public function openModal()
@@ -61,11 +72,13 @@ class Products extends Component
   public function edit($id)
   {
     $product = Product::findOrFail($id);
-    // $this->category_id = $id;
+    $this->id_product = $id;
     $this->category_id = $product->category->id;
     $this->name = $product->name;
     $this->slug = $product->slug;
     $this->description = $product->description;
+    $this->price = $product->price;
+    $this->quantity = $product->quantity;
     $this->image = $product->image;
     $this->status = $product->status;
     $this->openModal();
@@ -73,21 +86,23 @@ class Products extends Component
 
   public function destroy()
   {
-    $category = Category::where('id', $this->delete_id)->first();
-    $category->delete();
+    $product = Product::where('id', $this->delete_id)->first();
+    $product->delete();
   }
 
 
-  public function store()
+  public function store(Request $request)
   {
     $rules = [
       'name' => 'required|string|max:255',
       'slug' => 'required|string|max:255',
       'description' => 'required|string',
-      'price' => 'required|string',
-      'quantity' => 'required|string',
+      'price' => 'required',
+      'quantity' => 'required',
       'status' => 'required',
       'category_id' => 'required',
+      'image' => 'array|min:1',
+      'image.*' => 'image|max:5120',
     ];
 
     $this->validate($rules);
@@ -100,11 +115,21 @@ class Products extends Component
       'description' => $this->description,
       'price' => $this->price,
       'quantity' => $this->quantity,
-      'status' =>  $this->status == true ? '1':'0',
+      'status' =>  $this->status == true ? '1' : '0',
       'category_id' => $this->category_id
     ];
 
-    Product::updateOrCreate(['id' => $this->id_product], $product);
+    $product = Product::updateOrCreate(['id' => $this->id_product], $product);
+
+    if ($this->image) {
+      foreach ($this->image as $imageFile) {
+        $extension = $imageFile->extension();
+        $fileName = date('YmdHis') . '_' . rand(11111, 99999) . '.' . $extension;
+        $imageFile->storeAs('public/', $fileName);
+        $finalImageName = new ProductImage(['image' => $fileName]);
+        $product->productImages()->save($finalImageName);
+      }
+    }
 
     $this->closeModal();
     $this->cleanData();

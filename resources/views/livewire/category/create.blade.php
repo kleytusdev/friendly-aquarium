@@ -15,7 +15,7 @@
                     <div class="mb-4">
                         <label for="name" class="block text-gray-400 text-sm font-bold mb-2">Nombre:</label>
                         <input type="text"
-                            class="bg-zinc-700 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
+                            class="bg-zinc-600 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
                             id="name" wire:model="name" name="name">
                         @error('name')
                             <small class="text-red-500">{{ $message }}</small>
@@ -24,7 +24,7 @@
                     <div class="mb-4">
                         <label for="slug" class="block text-gray-400 text-sm font-bold mb-2">Slug:</label>
                         <input type="text"
-                            class="bg-zinc-700 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
+                            class="bg-zinc-600 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
                             id="slug" wire:model="slug" name="slug">
                         @error('slug')
                             <small class="text-red-500">{{ $message }}</small>
@@ -33,7 +33,7 @@
                     <div class="mb-4">
                         <label for="description" class="block text-gray-400 text-sm font-bold mb-2">Descripción:</label>
                         <input type="text"
-                            class="bg-zinc-700 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
+                            class="bg-zinc-600 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
                             id="description" wire:model="description" name="description">
                         @error('description')
                             <small class="text-red-500">{{ $message }}</small>
@@ -52,7 +52,7 @@
                           @endif
                       </div>
                       <input type="file"
-                          class="bg-zinc-700 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
+                          class="bg-zinc-600 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
                           id="image" wire:model="image" name="image">
                       @error('image')
                           <small class="text-red-500">{{ $message }}</small>
@@ -64,7 +64,7 @@
                     <div class="mb-4">
                         <label for="meta_title" class="block text-gray-400 text-sm font-bold mb-2">Meta titulo:</label>
                         <input type="text"
-                            class="bg-zinc-700 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
+                            class="bg-zinc-600 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
                             id="meta_title" wire:model="meta_title" name="meta_title">
                         @error('meta_title')
                             <small class="text-red-500">{{ $message }}</small>
@@ -73,7 +73,7 @@
                     <div class="mb-4">
                         <label for="meta_keyword" class="block text-gray-400 text-sm font-bold mb-2">Meta keyword:</label>
                         <input type="text"
-                            class="bg-zinc-700 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
+                            class="bg-zinc-600 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
                             id="meta_keyword" wire:model="meta_keyword" name="meta_keyword">
                         @error('meta_keyword')
                             <small class="text-red-500">{{ $message }}</small>
@@ -82,7 +82,7 @@
                     <div class="mb-4">
                         <label for="meta_description" class="block text-gray-400 text-sm font-bold mb-2">Meta description:</label>
                         <input type="text"
-                            class="bg-zinc-700 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
+                            class="bg-zinc-600 focus:ring-neutral-500 focus:outline-none appearance-none w-full text-sm leading-6 text-zinc-200 placeholder-slate-400 rounded-md shadow-sm border-none"
                             id="meta_description" wire:model="meta_description" name="meta_description">
                         @error('meta_description')
                             <small class="text-red-500">{{ $message }}</small>
@@ -109,7 +109,6 @@
                                 class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-gray-200 text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 hover:bg-gray-300 focus:outline-none transition ease-in-out duration-150 sm:text-sm sm:leading-5">Cancelar</button>
                         </span>
                     </div>
-
                 </div>
             </form>
         </div>

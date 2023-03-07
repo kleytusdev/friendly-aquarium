@@ -20,6 +20,7 @@ return new class extends Migration
             $table->mediumText('meta_description');
             $table->tinyInteger('status')->default('0')->comment('0=visible, 1=hidden');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

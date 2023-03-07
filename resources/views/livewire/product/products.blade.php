@@ -1,74 +1,110 @@
 @extends('layouts.sidebar')
 
-@section('products')
-
-  <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
-
-            @if (session()->has('message'))
-                <div class="bg-teal-100 rounded-b text-teal-900 px-4 py-4 shadow-md my-3" role="alert">
-                    <div class="flex">
-                        <div>
-                            <h4>{{ session('message') }}</h4>
-                        </div>
-                    </div>
-                </div>
-            @endif
-
-
-            <button wire:click="create()"
-                class="bg-green-100 hover:bg-green-200 text-black font-bold py-2 px-4 my-3 rounded-md">Nuevo</button>
+@section('dashboard')
+    @include('layouts.search')
+    <h1 class="my-[3vw] font-extrabold text-white text-3xl">Product</h1>
+@section('categories')
+    <div class="bg-white overflow-hidden shadow-xl rounded-lg px-10 py-8 w-[60vw]">
+        <div class="flex justify-between mb-7">
+            <h1 class="font-extrabold text-gray-600 text-2xl">Products List</h1>
+            <div class="bg-gray-200 flex justify-center items-center w-9 h-9 rounded-full hover:bg-gray-400 transition ease-in-out">
+                <a href="#" wire:click="create()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35">
+                        <path d="M469 830V587H226v-22h243V322h22v243h243v22H491v243h-22Z" />
+                    </svg>
+                </a>
+            </div>
             @if ($modal)
                 @include('livewire.product.create')
             @endif
-
-            <table class="table-fixed w-full">
-                <thead>
-                    <tr class="bg-indigo-600 text-white">
-                        <th class="px-4 py-2">ID</th>
-                        <th class="px-4 py-2">Nombre</th>
-                        <th class="px-4 py-2">Slug</th>
-                        <th class="px-4 py-2">Descripción</th>
-                        <th class="px-4 py-2">Imagen</th>
-                        <th class="px-4 py-2">Meta título</th>
-                        <th class="px-4 py-2">Meta keyword</th>
-                        <th class="px-4 py-2">Meta description</th>
-                        <th class="px-4 py-2">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($products as $product)
-                        <tr>
-                            <td class="border px-4 py-2">{{ $product->id }}</td>
-                            <td class="border px-4 py-2">{{ $product->name }}</td>
-                            <td class="border px-4 py-2">{{ $product->slug }}</td>
-                            <td class="border px-4 py-2">{{ $product->description }}</td>
-                            <td class="border px-4 py-2">{{ $product->price }}</td>
-                            <td class="border px-4 py-2">{{ $product->quantity }}</td>
-                            <td class="border px-4 py-2">{{ $product->status }}</td>
-                            <td class="border px-4 py-2">
-                              @isset($product->image)
-                                  <img src="{{ asset('storage/'.$product->image) }}" class="w-100 h-100">
-                              @else
-                                  <p>No hay imagen disponible</p>
-                              @endisset
-                            </td>
-                            <td class="border px-4 py-2">{{ $product->status == 1 ? 'Oculto' : 'Visible'}}</td>
-                            <td class="border px-4 py-2 text-center">
-                                <button wire:click="edit({{ $product->id }})"
-                                  class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4">Editar
-                                </button>
-                                <button wire:click="deletedConfirmation({{ $product->id }})"
-                                  class="bg-red-100 hover:bg-red-700 text-white font-bold py-2 px-4">Borrar
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
         </div>
-    </div>
-  </div>
+        <div class="flex justify-between items-center mt-4">
+      </div>
+      <form wire:submit.prevent="submitForm">
 
+        <table class="table-fixed">
+          <thead>
+            <tr class="bg-gray-100 text-gray-800">
+              <th class="w-[7vw] px-4 py-2">ID</th>
+              <th class="w-[7vw] px-4 py-2">Category</th>
+              <th class="w-[7vw] px-4 py-2">Name</th>
+              <th class="w-[9vw] px-4 py-2">Slug</th>
+              <th class="w-[12vw] px-4 py-2">Description</th>
+              <th class="w-[7vw] px-4 py-2">Price</th>
+              <th class="w-[7vw] px-4 py-2">Quantity</th>
+              <th class="w-[7vw] px-4 py-2">Image</th>
+              <th class="w-[7vw] px-4 py-2">Status</th>
+              <th class="px-4 py-2">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($products as $product)
+                    <tr class="odd:bg-white even:bg-gray-50">
+                        <td class="border-none px-4 py-2 text-center">0000{{ $product->id }}</td>
+                        <td class="border-none px-4 py-2 text-center">{{ $product->category->name }}</td>
+                        <td class="border-none px-4 py-2 text-center">{{ $product->name }}</td>
+                        <td class="border-none px-4 py-2 text-center">{{ $product->slug }}</td>
+                        <td class="border-none px-4 py-2 text-center">{{ $product->description }}</td>
+                        <td class="border-none px-4 py-2 text-center">{{ $product->price }}</td>
+                        <td class="border-none px-4 py-2 text-center">{{ $product->quantity }}</td>
+                        <td class="border-none px-4 py-2 text-center">
+                          <div class="flex flex-wrap">
+
+                          @foreach ( $product->productImages as $image )
+                            @isset($image->image)
+                            <div class="w-1/4 p-2">
+                              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-white dark:!border-none-navy-700">
+                                <img src="{{ asset('storage/' . $image->image ) }}" class="h-full w-full rounded-full object-cover">
+                              </div>
+                            </div>
+                            @else
+                                <p>None</p>
+                            @endisset
+                          @endforeach
+                          </div>
+                        </td>
+                        <td class="border-none w-10 h-[1vw] px-[1.4vw] py-7 text-center">
+                            <div
+                                class="h-full flex flex-col justify-center rounded-md {{ $product->status == 1 ? 'bg-red-100 text-red-900' : 'bg-green-100 text-green-900' }}">
+                                {{ $product->status == 1 ? 'Oculto' : 'Activo' }}
+                            </div>
+                        </td>
+                        <td class="border-none px-4 py-2 flex justify-center items-center">
+                            <div class="flex space-x-5 py-[1vw]">
+                                <div
+                                    class="bg-gray-200 hover:bg-gray-400 flex justify-center items-center w-9 h-9 rounded-full">
+                                    <a href="#" wire:click="edit({{ $product->id }})">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 96 960 960"
+                                            width="25">
+                                            <path
+                                                d="M506 910v-45l205-205 45 45-205 205h-45ZM146 707v-22h286v22H146Zm643-35-45-45 29-29q3-3 7.5-3t8.5 3l29 29q3 4 3 8.5t-3 7.5l-29 29ZM146 545v-22h449v22H146Zm0-161v-22h449v22H146Z" />
+                                        </svg>
+                                    </a>
+                                </div>
+
+                                <div
+                                    class="bg-gray-200 hover:bg-gray-400 flex justify-center items-center w-9 h-9 rounded-full">
+                                    <a href="#" wire:click="deletedConfirmation({{ $product->id }})">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 96 960 960"
+                                            width="25">
+                                            <path
+                                                d="M166 970V753q0-70.965 49.895-120.982Q265.79 582 337 582h62V256q0-21.5 16.25-37.75T453 202h54q21.5 0 37.75 16.25T561 256v326h62q70.965 0 120.983 50.018Q794 682.035 794 753v217H166Zm22-22h130V799q0-4.675 3.035-7.838 3.035-3.162 8.5-3.162 3.465 0 6.965 3.162 3.5 3.163 3.5 7.838v149h129V799q0-4.675 3.035-7.838 3.035-3.162 8-3.162t7.965 3.162q3 3.163 3 7.838v149h130V799q0-4.675 3.035-7.838 3.035-3.162 8.5-3.162 3.465 0 6.965 3.162 3.5 3.163 3.5 7.838v149h129V753q0-62.167-43.417-105.583Q685.167 604 623.162 604H337q-61.25 0-105.125 43.417Q188 690.833 188 753v195Zm351-366V256q0-14-9-23t-23-9h-54q-14 0-23 9t-9 23v326h118Z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+            </tbody>
+
+        </table>
+        <div class="mt-4">
+          <ul class="pagination">
+              {{ $products_pages->links() }}
+          </ul>
+        </div>
+      </form>
+    </div>
+@endsection
 @endsection

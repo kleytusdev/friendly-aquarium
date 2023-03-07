@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -19,7 +18,6 @@ class Categories extends Component
   public $imageUrl;
   public $modal = false;
   public $delete_id;
-  protected $categories = [];
 
   protected $listeners = ['destroy'];
 
@@ -29,9 +27,7 @@ class Categories extends Component
 
     $categories = DB::table('categories')->paginate(5);
 
-    return view('livewire.category.categories', [
-      'categories' => $categories
-    ]);
+    return view('livewire.category.categories', compact('categories'));
   }
 
   public function create()
@@ -104,7 +100,7 @@ class Categories extends Component
 
     if ($this->image) {
       $extension = $this->image->extension();
-      $imageName = time() . '.' . $extension;
+      $imageName = date('YmdHis') . '_' . rand(11111, 99999) . '.' . $extension;
       $this->image->storeAs('public', $imageName);
       $category['image'] = $imageName;
       $this->imageUrl = $this->image->temporaryUrl();
