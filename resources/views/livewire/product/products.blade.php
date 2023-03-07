@@ -49,7 +49,6 @@
                         <td class="border-none px-4 py-2 text-center">{{ $product->quantity }}</td>
                         <td class="border-none px-4 py-2 text-center">
                           <div class="flex flex-wrap">
-
                           @foreach ( $product->productImages as $image )
                             @isset($image->image)
                             <div class="w-1/4 p-2">
@@ -101,7 +100,7 @@
         </table>
         <div class="mt-4">
           <ul class="pagination">
-              {{ $products_pages->links() }}
+              {{ $products->links() }}
           </ul>
         </div>
       </form>

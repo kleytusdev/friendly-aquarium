@@ -30,27 +30,21 @@ class Products extends Component
   {
     abort_if(auth()->user()->role_as != 1, 403);
 
-    $products_pages = DB::table('categories')->paginate(5);
+    $products = Product::paginate(5);
 
-    $products = Product::all();
+    // $products = Product::all();
+
     $categories = Category::all();
     $images = ProductImage::all();
 
 
-    return view('livewire.product.products', compact('categories', 'images', 'products', 'products_pages'));
+    return view('livewire.product.products', compact('categories', 'images', 'products'));
   }
 
   public function create()
   {
-
-
     $this->cleanData();
     $this->openModal();
-    $products = Product::all();
-    $categories = Category::all();
-    $images = ProductImage::all();
-
-    return view('livewire.product.create', compact('categories', 'images', 'products'));
   }
 
   public function openModal()
