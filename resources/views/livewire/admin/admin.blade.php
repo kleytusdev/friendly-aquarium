@@ -1,6 +1,4 @@
 @extends('layouts.sidebar')
-
-
 @include('layouts.sidebar-right')
 @section('dashboard')
     <main class="mt-[2vw] ml-[-5vw]">

@@ -32,7 +32,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('categories', Categories::class);
     Route::get('brands', Brands::class);
     Route::get('products', Products::class);
-    Route::get('dashboard', Admin::class);
+    Route::get('dashboard', Admin::class)->name('dashboard');
 });
 
 Route::post('/login', [AuthenticatedController::class, 'store']);

@@ -3,7 +3,9 @@
     <div class="flex h-screen flex-col justify-between pt-2 pb-6">
       <div>
         <div class="w-max px-7 pt-6 pb-4">
-          <h1 class="text-gray-300 font-bold">Friendly Aquarium</h1>
+          <a href="{{ route('home') }}">
+            <h1 class="text-gray-300 font-bold">Friendly Aquarium</h1>
+          </a>
         </div>
         <ul class="mt-6 space-y-2 tracking-wide">
           <li class="min-w-max mx-8">
