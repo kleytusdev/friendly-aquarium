@@ -6,21 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('products_images', function (Blueprint $table) {
+        Schema::create('order_trackings', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->tinyInteger('status')->default('0');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
-            $table->softDeletes();
-
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('products_images');
+        Schema::dropIfExists('order_trackings');
     }
 };
