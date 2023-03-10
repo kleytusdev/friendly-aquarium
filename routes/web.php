@@ -18,12 +18,34 @@ Route::middleware([
     Route::get('/', function () {
       return view('home');
     })->name('home');
+
     Route::get('/about', function () {
       return view('about');
     })->name('about');
+
     Route::get('/contact', function () {
       return view('contact');
     })->name('contact');
+
+    Route::get('/shop', function () {
+      return view('shop');
+    })->name('shop');
+
+    Route::get('/fish', function () {
+      return view('store.fish');
+    })->name('fish');
+
+    Route::get('/food', function () {
+      return view('store.food');
+    })->name('food');
+
+    Route::get('/accesories', function () {
+      return view('store.accesories');
+    })->name('accesories');
+
+    Route::get('/lightning', function () {
+      return view('store.lightning');
+    })->name('lightning');
 });
 
 

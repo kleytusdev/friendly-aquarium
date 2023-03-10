@@ -1,12 +1,13 @@
 <nav x-data="{ open: false }">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-8xl mx-auto px-[5vw] sm:px-6 lg:px-10 py-5 transparent">
+    <div class="max-w-8xl mx-auto px-[5vw] sm:px-6 lg:px-10 py-7 transparent">
         <div class="flex justify-between h-16">
             <div class="flex flex-grow">
                 <!-- Logo -->
                 <div class="shrink-2 flex items-center">
                     <a href="{{ route('home') }}">
-                        <h1 class="text-gray-200 font-black text-3xl">FA</h1>
+                        <img src="https://cdn.discordapp.com/attachments/920362745231192114/1082876757922828328/siamese-fighting-fish.png"
+                            alt="" class="">
                     </a>
                 </div>
                 <!-- Navigation Links -->
@@ -20,12 +21,40 @@
                     <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-nav-link>
+                    <div class='relative inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-red-500 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out'
+                        x-data="{ showMenu: false }">
+                        <a class="py-[1.2vw] text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                            href="{{ route('shop') }}" @mouseover="showMenu = true" @mouseleave="showMenu = false">
+                            {{ __('Shop') }}
+                        </a>
+
+                        <ul id="menu" class="absolute top-full opacity-0 transition-all duration-500"
+                            :class="{ 'opacity-100 -translate-y-0': showMenu, 'translate-z-2': showMenu }"
+                            @mouseover="showMenu = true" @mouseleave="showMenu = false">
+                            <li class="py-2 pr-2"><a
+                                    class="py-2 w-full px-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                                    href="{{ route('fish') }}" :active="request() - > routeIs('fish')">
+                                    {{ __('Fish') }}</a></li>
+                            <li class="py-2 pr-2"><a
+                                    class="py-2 w-full px-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                                    href="{{ route('food') }}" :active="request() - > routeIs('food')">
+                                    {{ __('Food') }}</a></li>
+                            <li class="py-2 pr-2"><a
+                                    class="py-2 w-full px-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                                    href="{{ route('accesories') }}" :active="request() - > routeIs('accesories')">
+                                    {{ __('Accesories') }}</a></li>
+                            <li class="py-2 pr-2"><a
+                                    class="py-2 w-full px-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                                    href="{{ route('lightning') }}" :active="request() - > routeIs('lightning')">
+                                    {{ __('Lightning') }}</a></li>
+                        </ul>
+                    </div>
                     @auth
-                      @if (auth()->user()->role_as === 1)
-                          <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                              {{ __('Dashboard') }}
-                          </x-nav-link>
-                      @endif
+                        @if (auth()->user()->role_as === 1)
+                            <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                {{ __('Dashboard') }}
+                            </x-nav-link>
+                        @endif
                     @endauth
 
                 </div>

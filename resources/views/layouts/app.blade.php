@@ -11,12 +11,49 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
     @livewireStyles
+
+    <script>
+        // Selecciona el enlace que apunta al elemento deseado
+        const link = document.querySelector('a[href="#about-section"]');
+
+        // Manejador de evento de clic para el enlace
+        link.addEventListener('click', (e) => {
+            // Previene la acción predeterminada del enlace (redireccionamiento)
+            e.preventDefault();
+
+            // Obtiene la posición del elemento deseado
+            const target = document.querySelector('#about-section');
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+
+            // Desplaza suavemente hasta la posición deseada
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <script>
+        const details = document.querySelector('details');
+        const content = document.querySelector('div');
+
+        details.addEventListener('toggle', () => {
+            content.classList.toggle('opacity-100');
+        });
+    </script>
 
     <script>
         function setTheme(theme) {
@@ -36,14 +73,13 @@
         setTheme(theme);
     </script>
 
-    
+
 
 </head>
 
 <body class="font-sans antialiased">
 
-    <div class="min-h-screen bg-cover bg-center"
-        style="background-image: url('https://cdn.discordapp.com/attachments/920362745231192114/1082375810926792744/wallpaperflare.com_wallpaper_4.jpg');">
+    <div class="min-h-screen bg-[#020206]">
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-gray-400 dark:bg-gray-200 shadow">

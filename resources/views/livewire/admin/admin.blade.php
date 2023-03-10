@@ -4,7 +4,7 @@
     <main class="mt-[2vw] ml-[-5vw]">
         <div class="flex flex-col">
             <div class="px-[3.5vw]">
-                <h1 class="text-white text-3xl mx-2 mb-6">Dashboard</h1>
+                <h1 class="text-white font-nunito text-3xl mx-2 mb-6">Dashboard</h1>
                 <div class="grid grid-cols-3 gap-2">
                     <div
                         class="bg-gradient-to-r from-custom-sky-degradient to-custom-purple-degradient shadow-lg rounded-lg overflow-hidden mx-2">

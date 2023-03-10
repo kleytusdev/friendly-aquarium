@@ -41,7 +41,13 @@ module.exports = {
               'custom-purple-degradient' : '#666BF0',
               'blue-dark-full': '#141527',
               'blue-dark-div': '#1D1F38',
-            }
+            },
+            fontFamily: {
+             'header': ['Questrial'],
+             'ubuntu': ['Ubuntu Mono'],
+             'nunito': ['Nunito Sans'],
+             'open': ['Open Sans'],
+            },
         },
     },
 

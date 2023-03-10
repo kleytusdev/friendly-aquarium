@@ -2,7 +2,7 @@
 <div class="w-[19vw] dark:bg-neutral-900" style="float: right;">
   <div class="flex h-screen flex-col justify-between pt-2 pb-6">
     <div class="flex flex-col justify-center items-center h-[100vh]">
-      <h1 class="mb-8 ml-[-4vw] font-extrabold text-white text-3xl">Your Account</h1>
+      <h1 class="mb-8 ml-[-4vw] font-nunito text-white text-3xl">Your Account</h1>
       <div
       class="relative flex flex-col items-center rounded-[20px] w-[270px] mx-auto p-4 bg-gray-custom bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none">
       <div class="relative flex h-32 w-full justify-center rounded-xl bg-cover">
@@ -27,20 +27,20 @@
                     </div>
                     <div class="flex flex-col items-center justify-center">
                         <p class="text-2xl font-bold text-navy-700 dark:text-gray-200">
-                            9.7K
+                            $9.7K
                         </p>
-                        <p class="text-sm font-normal text-gray-200">Followers</p>
+                        <p class="text-sm font-normal text-gray-200">Total Money</p>
                     </div>
                     <div class="flex flex-col items-center justify-center">
                         <p class="text-2xl font-bold text-navy-700 dark:text-gray-200">
                             434
                         </p>
-                        <p class="text-sm font-normal text-gray-200">Following</p>
+                        <p class="text-sm font-normal text-gray-200">Sales</p>
                     </div>
                 </div>
             </div>
             {{-- Top Sales --}}
-            <h1 class="ml-[-6vw] pt-12 pb-5 font-extrabold text-white text-3xl">Top Sales</h1>
+            <h1 class="ml-[-6vw] pt-12 pb-5 font-nunito text-white text-3xl">Top Sales</h1>
             <div class="flex items-center justify-center ml-10">
               <div class="flex-shrink-0">
                 <img class="h-[48px] w-[48px] rounded-full"
