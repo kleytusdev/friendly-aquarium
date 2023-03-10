@@ -3,54 +3,57 @@
 @section('dashboard')
     <main class="mt-[2vw] ml-[-5vw]">
         <div class="flex flex-col">
-            <div class="px-[3.5vw]">
+            <div class="px-[3.5vw] relative">
                 <h1 class="text-white font-nunito text-3xl mx-2 mb-6">Dashboard</h1>
                 <div class="grid grid-cols-3 gap-2">
+                  <div class='absolute z-[0] w-[30%] h-[50%] top-[-30vw] right-[50vw] purple__gradient'></div>
+                  <div class='absolute z-[0] w-[20%] h-[20%] top-[30vw] right-[-13vw] purple__gradient'></div>
                     <div
-                        class="bg-gradient-to-r from-custom-sky-degradient to-custom-purple-degradient shadow-lg rounded-lg overflow-hidden mx-2">
+                        class="relative bg-black bg-opacity-30 shadow-lg rounded-lg overflow-hidden mx-2">
                         <div class="p-4">
                             <div class="flex items-center justify-between">
-                                <p class="text-md font-medium dark:text-gray-900">Usuarios</p>
+                                <p class="text-md font-medium dark:text-[#726EF7]">Usuarios</p>
                                 <svg class="w-6 h-6 text-gray-500" fill="none" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path d="M9 12l2 2 4-4"></path>
                                 </svg>
                             </div>
                             <p class="text-3xl font-bold text-gray-700 dark:text-white">743</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-900">+23% desde la semana pasada</p>
+                            <p class="text-sm text-gray-500 dark:text-[#726EF7]">+23% desde la semana pasada</p>
                         </div>
                     </div>
                     <div
-                        class="bg-gradient-to-r from-custom-piel to-custom-rose bg-zinc-700 shadow-lg rounded-lg overflow-hidden mx-2">
+                        class="relative bg-black bg-opacity-30 shadow-lg rounded-lg overflow-hidden mx-2">
                         <div class="p-4">
                             <div class="flex items-center justify-between">
-                                <p class="text-md font-medium dark:text-gray-900">Ventas</p>
+                                <p class="text-md font-medium dark:text-[#726EF7]">Ventas</p>
                                 <svg class="w-6 h-6 text-gray-500" fill="none" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path d="M9 12l2 2 4-4"></path>
                                 </svg>
                             </div>
-                            <p class="text-3xl font-bold text-gray-700 dark:text-white">$782</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-900">-1.9% desde la semana pasada</p>
+                            <p class="text-3xl font-bold text-gray-700 dark:text-white">$1240</p>
+                            <p class="text-sm text-gray-500 dark:text-[#726EF7]">+2.65% desde la semana pasada</p>
                         </div>
                     </div>
                     <div
-                        class="bg-gradient-to-r from-custom-purple-secondary to-custom-pink-secondary bg-zinc-700 shadow-lg rounded-lg overflow-hidden mx-2">
+                        class="relative bg-black bg-opacity-30 shadow-lg rounded-lg overflow-hidden mx-2">
                         <div class="p-4">
                             <div class="flex items-center justify-between">
-                                <p class="text-md font-medium dark:text-gray-900">Pedidos</p>
+                                <p class="text-md font-medium dark:text-[#726EF7]">Pedidos</p>
                                 <svg class="w-6 h-6 text-gray-500" fill="none" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                     <path d="M9 12l2 2 4-4"></path>
                                 </svg>
                             </div>
-                            <p class="text-3xl font-bold text-gray-700 dark:text-white">347</p>
-                            <p class="text-sm text-gray-500 dark:text-gray-900">-0.30% desde la semana pasada</p>
+                            <p class="text-3xl font-bold text-gray-700 dark:text-white">743</p>
+                            <p class="text-sm text-gray-500 dark:text-[#726EF7]">-0.30% desde la semana pasada</p>
                         </div>
                     </div>
+
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 sm:grid-rows-2 gap-2 py-[2.3vw]">
-                    <div class="rounded-lg bg-gray-custom col-start-1 col-span-2 mx-2 px-8 py-6 my-2">
+                <div class="relative grid grid-cols-1 sm:grid-cols-3 grid-rows-2 sm:grid-rows-2 gap-2 py-[2.3vw]">
+                    <div class="rounded-lg bg-black bg-opacity-30 col-start-1 col-span-2 mx-2 px-8 py-6 my-2">
                         <div class="flex justify-between items-center">
                             <div>
                                 <p class="text-3xl font-bold text-gray-700 dark:text-gray-300">Lorem</p>
@@ -66,7 +69,7 @@
                             <svg viewBox="0 0 120 120" width="120" height="120">
                               <defs>
                                 <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                  <stop offset="50%" stop-color="#FC9968" />
+                                  <stop offset="50%" stop-color="#726EF7" />
                                   <stop offset="50%" stop-color="#4B5563" />
                                 </linearGradient>
                               </defs>
@@ -75,7 +78,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="rounded-lg bg-gray-custom col-start-2 col-span-2 sm:col-start-1 sm:row-start-2 mx-2 px-8 py-4 my-2">
+                    <div class="rounded-lg bg-black bg-opacity-30 col-start-2 col-span-2 sm:col-start-1 sm:row-start-2 mx-2 px-8 py-4 my-2">
                         <div class="flex justify-between items-center">
                           <div>
                               <p class="text-3xl font-bold text-gray-700 dark:text-gray-300">Lorem</p>
@@ -88,12 +91,12 @@
                             <g class="text-gray-600">
                               <rect x="50" y="550" width="36" height="140" rx="6" class="fill-current" />
                               <rect x="100" y="430" width="36" height="260" rx="6" class="fill-current" />
-                              <rect x="150" y="310" width="36" height="380" rx="6" class="fill-current text-custom-text-clarity" />
+                              <rect x="150" y="310" width="36" height="380" rx="6" class="fill-current text-[#726EF7]" />
                               <rect x="200" y="390" width="36" height="300" rx="6" class="fill-current" />
                               <rect x="250" y="550" width="36" height="140" rx="6" class="fill-current" />
                               <rect x="300" y="610" width="36" height="80" rx="6" class="fill-current" />
                               <rect x="350" y="550" width="36" height="140" rx="6" class="fill-current" />
-                              <rect x="400" y="390" width="36" height="300" rx="6" class="fill-current text-custom-text-clarity" />
+                              <rect x="400" y="390" width="36" height="300" rx="6" class="fill-current text-[#726EF7]" />
                               <rect x="450" y="550" width="36" height="140" rx="6" class="fill-current" />
                               <rect x="500" y="610" width="36" height="80" rx="6" class="fill-current" />
                               <rect x="550" y="550" width="36" height="140" rx="6" class="fill-current" />
@@ -102,7 +105,7 @@
                               <rect x="700" y="390" width="36" height="300" rx="6" class="fill-current" />
                               <rect x="750" y="550" width="36" height="140" rx="6" class="fill-current" />
                               <rect x="800" y="430" width="36" height="260" rx="6" class="fill-current" />
-                              <rect x="850" y="310" width="36" height="380" rx="6" class="fill-current text-custom-text-clarity" />
+                              <rect x="850" y="310" width="36" height="380" rx="6" class="fill-current text-[#726EF7]" />
                               <rect x="900" y="390" width="36" height="300" rx="6" class="fill-current" />
                               <rect x="950" y="550" width="36" height="140" rx="6" class="fill-current" />
                               <rect x="1000" y="610" width="36" height="80" rx="6" class="fill-current" />
@@ -115,7 +118,7 @@
                           </svg>
                       </div>
                     </div>
-                    <div class="rounded-lg bg-gray-custom col-start-3 col-span-1 sm:col-span-1 row-span-2 mx-2 px-8 my-2">
+                    <div class="rounded-lg bg-black bg-opacity-30 col-start-3 col-span-1 sm:col-span-1 row-span-2 mx-2 px-8 my-2">
                       <div class="p-10">
                         <div class="flex items-center justify-center">
                           <div>
@@ -131,11 +134,11 @@
                           <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                               <linearGradient id="gradient" x1="20%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#FC9968" />
+                                <stop offset="0%" stop-color="#726EF7" />
                                 <stop offset="100%" stop-color="#4B5563" />
                               </linearGradient>
                             </defs>
-                            <path fill="none" stroke-width="3" stroke="#FC9968"
+                            <path fill="none" stroke-width="3" stroke="#726EF7"
                               d="M 20 50 C 60 120, 90 180, 140 140 C 180 100, 220 180, 280 50"></path>
                             <path fill="url(#gradient)" opacity="0.3"
                               d="M 20 50 C 60 120, 90 180, 140 140 C 180 100, 220 180, 280 50 L 280 200 L 20 200 Z"></path>
@@ -153,8 +156,8 @@
                 <div class="inline-block min-w-full align-middle">
                     <div class="overflow-hidden md:rounded-lg">
                         <table class="min-w-full">
-                            <thead class="bg-gray-custom">
-                                <tr>
+                            <thead class="bg-black bg-opacity-30">
+                                <tr class="">
                                     <th scope="col"
                                         class="py-3.5 px-4 text-sm text-center rtl:text-right text-gray-300 font-bold">
                                         <button class="flex items-center gap-x-3 focus:outline-none">
@@ -192,25 +195,25 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-gray-600">
+                            <tbody class="bg-black bg-opacity-10">
                                 <tr>
                                     <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
                                         <div>
-                                            <h2 class="font-medium text-gray-200">Sisyphus</h2>
-                                            <p class="text-sm font-normal text-gray-400">sisyphus.com
+                                            <h2 class="font-medium text-gray-200">Lorem</h2>
+                                            <p class="text-sm font-normal text-gray-400">loremipsum.com
                                             </p>
                                         </div>
                                     </td>
                                     <td class="text-center px-12 py-4 text-sm font-medium whitespace-nowrap">
                                         <div
-                                            class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 bg-emerald-100/60">
-                                            Customer
+                                            class="inline px-3 py-1 text-sm font-normal rounded-full text-white gap-x-2 bg-[#726EF7]">
+                                            Business
                                         </div>
                                     </td>
                                     <td class="px-4 py-4 text-sm whitespace-nowrap">
                                         <div>
-                                            <h4 class="text-gray-200">Automation and workflow</h4>
-                                            <p class="text-gray-400">Time tracking, invoicing and expenses
+                                            <h4 class="text-gray-200">Lorem, ipsum dolor</h4>
+                                            <p class="text-gray-400">Lorem ipsum dolor sit amet consectetur
                                             </p>
                                         </div>
                                     </td>
@@ -249,21 +252,21 @@
                                 <tr>
                                     <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
                                         <div>
-                                            <h2 class="font-medium text-gray-200">Hourglass</h2>
-                                            <p class="text-sm font-normal text-gray-400">hourglass.app
+                                            <h2 class="font-medium text-gray-200">Lorem</h2>
+                                            <p class="text-sm font-normal text-gray-400">loremipsum.com
                                             </p>
                                         </div>
                                     </td>
                                     <td class="text-center px-12 py-4 text-sm font-medium whitespace-nowrap">
                                         <div
-                                            class="inline px-3 py-1 text-sm font-normal text-gray-500 bg-gray-100 rounded-full dark:text-gray-200 gap-x-2 dark: dark:bg-zinc-500">
+                                            class="inline px-3 py-1 text-sm font-normal text-gray-500 bg-gray-100 rounded-full dark:text-gray-200 gap-x-2 dark: dark:bg-gray-600">
                                             Inactive
                                         </div>
                                     </td>
                                     <td class="px-4 py-4 text-sm whitespace-nowrap">
                                         <div>
-                                            <h4 class="text-gray-200">Productivity app</h4>
-                                            <p class="text-gray-400">Time management and productivity
+                                            <h4 class="text-gray-200">Lorem ipsum dolor</h4>
+                                            <p class="text-gray-400">Lorem ipsum dolor sit amet consectetur
                                             </p>
                                         </div>
                                     </td>

@@ -1,4 +1,4 @@
-<section class="mb-[1vw]">
+<section class="mt-[1vw] mb-[1vw]">
   <header class="space-y-4 sm:px-8 sm:py-6 lg:p-4">
       <form class="group relative">
           <svg width="20" height="20" fill="currentColor"

@@ -2,9 +2,9 @@
 
 @section('dashboard')
     @include('layouts.search')
-    <h1 class="my-[3vw] font-nunito text-white text-3xl">Product</h1>
+    <h1 class="my-[1vw] font-nunito text-white text-3xl">Product</h1>
 @section('categories')
-    <div class="bg-white overflow-hidden shadow-xl rounded-lg px-10 py-8 w-[60vw]">
+    <div class="my-[3vw] bg-white overflow-hidden shadow-xl rounded-lg px-10 py-8 w-[70vw]">
         <div class="flex justify-between mb-7">
             <h1 class="font-nunito text-gray-600 text-2xl">Products List</h1>
             <div class="bg-gray-200 flex justify-center items-center w-9 h-9 rounded-full hover:bg-gray-400 transition ease-in-out">
