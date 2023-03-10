@@ -11,7 +11,7 @@
         </div>
 
         <x-validation-errors class="mb-4" />
-
+        <x-gradient-auth/>
         <form method="POST" action="{{ route('password.confirm') }}">
             @csrf
 

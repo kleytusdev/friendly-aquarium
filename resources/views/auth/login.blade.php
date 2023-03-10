@@ -11,11 +11,11 @@
                 {{ session('status') }}
             </div>
         @endif
-
+        <x-gradient-auth/>
         <form method="POST" action="{{ route('login') }}" >
             @csrf
             <div class="flex flex-items justify-center p-3 py-[2vw] items-center">
-              <h1 class="font-black text-3xl text-[#FEAB6A]">Welcome To Friendly Aquarium</h1>
+              <h1 class="font-bold text-4xl text-center justify-center items-center text-[#726EF7]">Welcome to Friendly Aquarium</h1>
             </div>
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
@@ -36,12 +36,12 @@
 
             <div class="flex items-center justify-end mt-4">
               <div class="flex-grow justify-start">
-                <a class="no-underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FEAB6A] dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
+                <a class="no-underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" href="{{ route('register') }}">
                   {{ __('Sign Up') }}
                 </a>
               </div>
                 @if (Route::has('password.request'))
-                    <a class="no-underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FEAB6A] dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                    <a class="no-underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif

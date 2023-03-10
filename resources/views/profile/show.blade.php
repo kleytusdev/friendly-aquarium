@@ -1,8 +1,11 @@
 <x-guest-layout>
-  @include('navigation-menu-auth')
+  <div class="relative z-10">
+    @include('navigation-menu-auth')
+  </div>
 
-    <div class="bg-[#020206]">
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+  <div class="bg-[#020206]">
+    <x-gradient-profile/>
+    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 relative z-10">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                 @livewire('profile.update-profile-information-form')
 

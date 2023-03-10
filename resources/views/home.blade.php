@@ -9,7 +9,7 @@
                     <h1 class="font-nunito text-7xl">Friendly <span
                             class="font-black text-7xl text-custom-clarity">Aquarium</span></h1>
                     <h4 class="font-nunito text-2xl pt-3">Un amor unilateral <span class="text-custom-clarity">por los
-                            peces tropicales</span></h4>
+                            peces</span></h4>
                     <p class="pt-[2vw]">
                         Nos esforzamos por ofrecer un servicio excepcional a nuestros clientes, lo que significa que
                         siempre nos enfocamos en sus necesidades y trabajamos para cumplir con sus expectativas. Si
