@@ -1,4 +1,6 @@
-@include('navigation-menu-auth')
+<div class="relative z-10">
+  @include('navigation-menu-auth')
+</div>
 <x-guest-layout>
     <x-authentication-card>
         {{-- <x-slot name="logo">

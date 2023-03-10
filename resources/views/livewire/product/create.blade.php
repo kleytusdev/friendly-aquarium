@@ -136,13 +136,13 @@
                 <div class="bg-zinc-900 px-4 py-4 sm:px-6 sm:flex sm:flex-row-reverse justify-center">
                     <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                         <button wire:click.prevent="store()" type="submit"
-                            class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-custom-text-clarity text-base leading-6 font-medium text-gray-700 hover:text-gray-500 shadow-sm hover:bg-[#FEAB6A] transition focus:outline-none ease-in-out duration-250 sm:text-sm sm:leading-5">Guardar</button>
-                    </span>
+                        class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-[#726EF7] text-base leading-6 font-medium text-gray-200 hover:text-gray-800 shadow-sm hover:bg-[#A29FF9] transition focus:outline-none ease-in-out duration-250 sm:text-sm sm:leading-5">Guardar</button>
+                      </span>
 
                     <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
                         <button wire:click="closeModal()" type="button"
-                            class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-gray-200 text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 hover:bg-gray-300 focus:outline-none transition ease-in-out duration-150 sm:text-sm sm:leading-5">Cancelar</button>
-                    </span>
+                        class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-gray-200 text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-800 hover:bg-gray-300 focus:outline-none transition ease-in-out duration-150 sm:text-sm sm:leading-5">Cancelar</button>
+                      </span>
                 </div>
             </form>
         </div>

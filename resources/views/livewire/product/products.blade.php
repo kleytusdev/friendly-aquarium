@@ -3,10 +3,12 @@
 @section('dashboard')
     @include('layouts.search')
     <h1 class="my-[1vw] font-nunito text-white text-3xl">Product</h1>
+    <div class='absolute z-[1] w-[30%] h-[50%] top-[-40vw] right-[50vw] purple__gradient'></div>
+    <div class='absolute z-[1] w-[10%] h-[10%] bottom right-[-0vw] purple__gradient'></div>
 @section('categories')
-    <div class="my-[3vw] bg-white overflow-hidden shadow-xl rounded-lg px-10 py-8 w-[70vw]">
-        <div class="flex justify-between mb-7">
-            <h1 class="font-nunito text-gray-600 text-2xl">Products List</h1>
+<div class=" my-[3vw] bg-black bg-opacity-30 overflow-hidden shadow-xl rounded-lg px-10 py-8 w-[70vw] relative z-10">
+  <div class="flex justify-between mb-7">
+            <h1 class="font-nunito text-gray-300 text-2xl">Products List</h1>
             <div class="bg-gray-200 flex justify-center items-center w-9 h-9 rounded-full hover:bg-gray-400 transition ease-in-out">
                 <a href="#" wire:click="create()">
                     <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 96 960 960" width="35">
@@ -18,13 +20,12 @@
                 @include('livewire.product.create')
             @endif
         </div>
-        <div class="flex justify-between items-center mt-4">
-      </div>
+
       <form wire:submit.prevent="submitForm">
 
         <table class="table-fixed">
           <thead>
-            <tr class="bg-gray-100 text-gray-800">
+            <tr class="bg-black bg-opacity-40 text-gray-200">
               <th class="w-[7vw] px-4 py-2">ID</th>
               <th class="w-[7vw] px-4 py-2">Category</th>
               <th class="w-[7vw] px-4 py-2">Name</th>
@@ -39,7 +40,7 @@
           </thead>
           <tbody>
             @foreach ($products as $product)
-                    <tr class="odd:bg-white even:bg-gray-50">
+                    <tr class="odd:bg-black odd:bg-opacity-10 even:bg-black even:bg-opacity-30 text-white">
                         <td class="border-none px-4 py-2 text-center">0000{{ $product->id }}</td>
                         <td class="border-none px-4 py-2 text-center">{{ $product->category->name }}</td>
                         <td class="border-none px-4 py-2 text-center">{{ $product->name }}</td>
@@ -71,7 +72,7 @@
                         <td class="border-none px-4 py-2 flex justify-center items-center">
                             <div class="flex space-x-5 py-[1vw]">
                                 <div
-                                    class="bg-gray-200 hover:bg-gray-400 flex justify-center items-center w-9 h-9 rounded-full">
+                                    class="bg-gray-200 hover:bg-gray-400 flex justify-center items-center w-9 h-9 rounded-full transition ease-in-out">
                                     <a href="#" wire:click="edit({{ $product->id }})">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 96 960 960"
                                             width="25">
@@ -82,7 +83,7 @@
                                 </div>
 
                                 <div
-                                    class="bg-gray-200 hover:bg-gray-400 flex justify-center items-center w-9 h-9 rounded-full">
+                                    class="bg-gray-200 hover:bg-gray-400 flex justify-center items-center w-9 h-9 rounded-full transition ease-in-out">
                                     <a href="#" wire:click="deletedConfirmation({{ $product->id }})">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 96 960 960"
                                             width="25">
