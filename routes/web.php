@@ -52,7 +52,6 @@ Route::middleware([
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('logout', [AuthenticatedController::class, 'logout']);
     Route::get('categories', Categories::class);
-    Route::get('brands', Brands::class);
     Route::get('products', Products::class);
     Route::get('dashboard', Admin::class)->name('dashboard');
 });

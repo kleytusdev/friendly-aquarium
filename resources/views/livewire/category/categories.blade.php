@@ -65,7 +65,7 @@
                           <div class="flex space-x-5 py-[1vw]">
                               <div
                                   class="bg-gray-200 hover:bg-gray-400 flex justify-center items-center w-9 h-9 rounded-full transition ease-in-out">
-                                  <a href="#" wire:click="edit({{ $category->id }})">
+                                  <a href="#" wire:click="edit({{ $category->id }})" data-id="{{ $category->id }}">
                                       <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 96 960 960"
                                           width="25">
                                           <path

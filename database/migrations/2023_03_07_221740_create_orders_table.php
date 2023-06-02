@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('payment_method_id')->references('id')->on('payment_methods');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

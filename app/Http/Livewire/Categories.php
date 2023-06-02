@@ -54,7 +54,7 @@ class Categories extends Component
 
   public function edit($id)
   {
-    $category = Category::findorFail($id);
+    $category = Category::findOrFail($id);
     $this->id_category = $id;
     $this->name = $category->name;
     $this->slug = $category->slug;
